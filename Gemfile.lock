@@ -26,9 +26,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler (~> 1.17)
+  bundler (~> 1.17.3)
   grape-extra_validators!
-  rubocop (~> 0.79)
+  rubocop (~> 0.79.0)
 
 BUNDLED WITH
-   1.17.0
+   1.17.3

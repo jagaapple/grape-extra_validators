@@ -1,0 +1,39 @@
+# ------------------------------------------------------------------------------------------------------------------------------
+# Temp Files
+# ------------------------------------------------------------------------------------------------------------------------------
+# Generated temporary files by OS or editors.
+*~
+*#
+*.bak
+*.tmproj
+.buildpath
+.project
+.settings
+.idea
+.tmp
+.netbeans
+build
+nbproject
+
+
+# ------------------------------------------------------------------------------------------------------------------------------
+# Dynamicaly Generated Files
+# ------------------------------------------------------------------------------------------------------------------------------
+# Hidden files created by OS.
+Thumbs.db
+desktop.ini
+.DS_Store
+.DS_STORE
+
+# Generated files created by Ruby.
+.bundle
+vendor/bundle
+
+# Generated files created by Ruby on Rails.
+log/*
+!log/.gitkeep
+tmp/*
+!tmp/.gitkeep
+
+# Generated files created by tests.
+coverage

@@ -1,0 +1,9 @@
+{
+  "Frozen String Literal Magic Comment": {
+    "prefix": "frozen string literal",
+    "scope": "ruby",
+    "body": [
+      "# frozen_string_literal: true",
+    ]
+  }
+}

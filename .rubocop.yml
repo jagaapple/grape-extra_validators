@@ -1,0 +1,78 @@
+# Refer: https://github.com/rubocop-hq/rubocop/blob/master/config/default.yml
+AllCops:
+  Exclude:
+    - ".git/**/*"
+    - "bin/**/*"
+    - "vendor/**/*"
+
+Layout/EmptyLinesAroundBlockBody:
+  Enabled: false
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: "indented"
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - "spec/**/*"
+
+Metrics/MethodLength:
+  Max: 20
+
+Metrics/LineLength:
+  Max: 128
+
+Naming/FileName:
+  Exclude:
+    - "config/initializers/**/*"
+
+Style/AccessModifierDeclarations:
+  EnforcedStyle: "inline"
+
+Style/Documentation:
+  Enabled: false
+
+Style/PreferredHashMethods:
+  EnforcedStyle: "verbose"
+
+Style/RaiseArgs:
+  EnforcedStyle: "compact"
+
+Style/RedundantSelf:
+  Enabled: false
+
+Style/RegexpLiteral:
+  EnforcedStyle: "slashes"
+  AllowInnerSlashes: true
+
+Style/RescueModifier:
+  Enabled: false
+
+Style/SignalException:
+  EnforcedStyle: "semantic"
+
+Style/StringLiterals:
+  EnforcedStyle: "double_quotes"
+
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: "double_quotes"
+
+Style/SymbolArray:
+  EnforcedStyle: "brackets"
+
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: "consistent_comma"
+
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: "consistent_comma"
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: "consistent_comma"
+
+Style/WordArray:
+  EnforcedStyle: "brackets"
+
+Layout/EmptyLines:
+  Enabled: false

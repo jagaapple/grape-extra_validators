@@ -20,6 +20,9 @@ jobs:
           paths:
             - "vendor/bundle"
       - run:
+          name: "Execute linters"
+          command: "bundle exec rubocop -P"
+      - run:
           name: "Execute tests"
           command: "bundle exec rspec"
   ruby_v2_5:
@@ -38,6 +41,9 @@ jobs:
           paths:
             - "vendor/bundle"
       - run:
+          name: "Execute linters"
+          command: "bundle exec rubocop -P"
+      - run:
           name: "Execute tests"
           command: "bundle exec rspec"
   ruby_v2_4:
@@ -55,6 +61,9 @@ jobs:
           key: "ruby-v2.4-gems-{{ checksum \"Gemfile.lock\" }}"
           paths:
             - "vendor/bundle"
+      - run:
+          name: "Execute linters"
+          command: "bundle exec rubocop -P"
       - run:
           name: "Execute tests"
           command: "bundle exec rspec"

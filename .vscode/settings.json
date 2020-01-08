@@ -16,6 +16,7 @@
   // ---------------------------------------------------------------------------------------------------------------------------
   // Configures glob patterns for excluding files and folders.
   "files.exclude": {
+    ".bundle": true,
     "vendor/bundle": true,
     "tmp": true
   },
@@ -25,6 +26,7 @@
   // lots of cpu time on startup, you can exclude large folders to reduce the initial load.
   "files.watcherExclude": {
     "**/.git/objects/**": true,
+    "**/.bundle/**": true,
     "**/vendor/bundle/**": true,
     "log": true,
     "coverage": true

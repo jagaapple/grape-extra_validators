@@ -5,7 +5,7 @@
 require "simplecov"
 require "simplecov-console"
 require "codecov"
-if ENV["CI_COVERAGE"]
+if ENV["CI"]
   SimpleCov.formatter = SimpleCov::Formatter::Codecov
 else
   SimpleCov.formatters = [SimpleCov::Formatter::HTMLFormatter]

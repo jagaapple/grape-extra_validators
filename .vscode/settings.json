@@ -17,7 +17,6 @@
   // Configures glob patterns for excluding files and folders.
   "files.exclude": {
     ".bundle": true,
-    "vendor/bundle": true,
     "tmp": true
   },
 
@@ -28,7 +27,6 @@
     "**/.git/objects/**": true,
     "**/.bundle/**": true,
     "**/vendor/bundle/**": true,
-    "log": true,
     "coverage": true
   }
 

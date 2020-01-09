@@ -16,7 +16,7 @@ module Grape
         return if params[attr_name].length <= @option
 
         unit = "character".pluralize(@option)
-        message = "must be to #{@option} #{unit} long"
+        message = "must be up to #{@option} #{unit} long"
 
         fail Grape::Exceptions::Validation.new(params: [@scope.full_name(attr_name)], message: message)
       end

@@ -17,7 +17,7 @@ module Grape
         value = params[attr_name].to_i
         return if value <= @option
 
-        message = "must be below #{@option}"
+        message = "must be equal to or below #{@option}"
 
         fail Grape::Exceptions::Validation.new(params: [@scope.full_name(attr_name)], message: message)
       end

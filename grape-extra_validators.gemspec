@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-$LOAD_PATH.push File.expand_path("lib", __dir__)
+lib = File.expand_path("lib", __dir__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "grape/extra_validators/version"
 
 Gem::Specification.new do |spec|
@@ -25,7 +26,8 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.17.3"
   spec.add_development_dependency "codecov", "~> 0.1.16"
-  spec.add_development_dependency "rack-test", "~> 1.0.0"
+  spec.add_development_dependency "rack-test", "~> 1.1.0"
+  spec.add_development_dependency "rake", "~> 13.0.1"
   spec.add_development_dependency "rspec", "~> 3.9.0"
   spec.add_development_dependency "rubocop", "~> 0.79.0"
   spec.add_development_dependency "simplecov", "~> 0.17.1"

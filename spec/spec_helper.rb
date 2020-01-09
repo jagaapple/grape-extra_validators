@@ -15,4 +15,12 @@ SimpleCov.start
 
 # Loads core files.
 require "bundler/setup"
+require "rack/test"
 require "grape/extra_validators"
+
+# ------------------------------------------------------------------------------------------------------------------------------
+# RSpec Settings
+# ------------------------------------------------------------------------------------------------------------------------------
+RSpec.configure do |config|
+  config.include Rack::Test::Methods
+end

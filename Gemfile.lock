@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    grape-extra_validators (0.1.0)
+    grape-extra_validators (1.0.0)
       activesupport
       grape (>= 1.0.0)
 

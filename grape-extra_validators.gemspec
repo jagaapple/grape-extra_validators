@@ -20,6 +20,9 @@ Gem::Specification.new do |spec|
   spec.test_files            = Dir["spec/**/*"]
   spec.require_paths         = ["lib"]
 
+  spec.add_dependency "grape", ">= 1.0.0"
+  spec.add_dependency "activesupport"
+
   spec.add_development_dependency "bundler", "~> 1.17.3"
   spec.add_development_dependency "codecov", "~> 0.1.16"
   spec.add_development_dependency "rack-test", "~> 1.0.0"

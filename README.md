@@ -26,7 +26,6 @@ end
 - [Quick Start](#quick-start)
   - [Requirements](#requirements)
   - [Installation](#installation)
-  - [Setup](#setup)
 - [Validators](#validators)
   - [For String](#for-string)
     - [Length](#length)
@@ -59,9 +58,6 @@ If you are using Bundler, add the gem to Gemfile.
 ```bash
 gem "grape-extra_validators"
 ```
-
-### Setup
-Firstly you have to do.
 
 
 ## Validators

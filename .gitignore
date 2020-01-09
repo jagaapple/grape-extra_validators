@@ -27,13 +27,8 @@ desktop.ini
 
 # Generated files created by Ruby.
 .bundle
+pkg
 vendor/bundle
-
-# Generated files created by Ruby on Rails.
-log/*
-!log/.gitkeep
-tmp/*
-!tmp/.gitkeep
 
 # Generated files created by tests.
 coverage

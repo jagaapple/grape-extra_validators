@@ -6,7 +6,7 @@
 params do
   requires :name, type: String, length: 4..32
   requires :age, type: Integer, minimum_value: 0
-  requires :website, type: String, starts_with: %w(http:// https://)
+  requires :website, type: String, start_with: %w(http:// https://)
 end
 ```
 
@@ -27,6 +27,17 @@ end
   - [Requirements](#requirements)
   - [Installation](#installation)
   - [Setup](#setup)
+- [Validators](#validators)
+  - [For String](#for-string)
+    - [Length](#length)
+    - [Maximum Length](#maximum-length)
+    - [Minimum Length](#minimum-length)
+    - [Start With](#start-with)
+    - [End With](#end-with)
+  - [For Numeric](#for-numeric)
+    - [Value](#value)
+    - [Maximum Value](#maximum-value)
+    - [Minimum Value](#minimum-value)
 - [Contributing to grape-extra_validators](#contributing-to-grape-extra_validators)
 - [License](#license)
 
@@ -51,6 +62,93 @@ gem "grape-extra_validators"
 
 ### Setup
 Firstly you have to do.
+
+
+## Validators
+### For String
+#### Length
+The length validator checks whether the parameter is a specified characters length or within a specified characters length
+range. You can specify an Integer or Range object to this.
+
+```rb
+params do
+  requires :name, type: String, length: 4
+  requires :bio, type: String, length: 4..512
+end
+```
+
+#### Maximum Length
+The maximum length validator checks whether the parameter is up to a specified characters length. You can specify an Integer
+object to this.
+
+```rb
+params do
+  requires :username, type: String, maximum_length: 20
+end
+```
+
+#### Minimum Length
+The minimum length validator checks whether the parameter is at least a specified characters length. You can specify an Integer
+object to this.
+
+```rb
+params do
+  requires :username, type: String, minimum_length: 20
+end
+```
+
+#### Start With
+The start with length validator checks whether the parameter starts with a specified string. You can specify a String, Symbol,
+or Array which has strings object to this.
+
+```rb
+params do
+  requires :website, type: String, start_with: "https://"
+  requires :website, type: String, start_with: %w(http:// https://)
+end
+```
+
+#### End With
+The end with length validator checks whether the parameter ends with a specified string. You can specify a String, Symbol,
+or Array which has strings object to this.
+
+```rb
+params do
+  requires :price, type: String, end_with: "JPY"
+  requires :price, type: String, end_with: %w(JPY USD)
+end
+```
+
+### For Numeric
+#### Value
+This gem does not support a validator which checks whether the parameter is within a specified range. You can use
+[`values` built-in validator](https://github.com/ruby-grape/grape#values) instead.
+
+```rb
+params do
+  requires :point, type: Integer, values: 0..100
+end
+```
+
+#### Maximum Value
+The maximum value validator checks whether the parameter is equal to or below a specified value. You can specify a Numeric
+object to this.
+
+```rb
+params do
+  requires :level, type: Integer, maximum_value: 5
+end
+```
+
+#### Minimum Value
+The minimum value validator checks whether the parameter is equal to or above a specified value. You can specify a Numeric
+object to this.
+
+```rb
+params do
+  requires :age, type: Integer, minimum_value: 0
+end
+```
 
 
 ## Contributing to grape-extra_validators

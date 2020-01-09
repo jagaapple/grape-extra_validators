@@ -31,6 +31,9 @@ Naming/FileName:
 Style/AccessModifierDeclarations:
   EnforcedStyle: "inline"
 
+Style/BracesAroundHashParameters:
+  Enabled: false
+
 Style/Documentation:
   Enabled: false
 

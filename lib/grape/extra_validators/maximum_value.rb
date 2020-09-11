@@ -14,10 +14,13 @@ module Grape
       def validate_param!(attr_name, params)
         return if !@required && params[attr_name].blank?
 
-        value = params[attr_name].to_i
-        return if value <= @option
+        maximum_value = @option.instance_of?(Proc) ? @option.call(params) : @option
+        return if maximum_value.blank?
 
-        message = "must be equal to or below #{@option}"
+        value = params[attr_name].to_i
+        return if value <= maximum_value
+
+        message = "must be equal to or below #{maximum_value}"
 
         fail Grape::Exceptions::Validation.new(params: [@scope.full_name(attr_name)], message: message)
       end

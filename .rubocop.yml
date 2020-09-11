@@ -1,5 +1,7 @@
 # Refer: https://github.com/rubocop-hq/rubocop/blob/master/config/default.yml
 AllCops:
+  TargetRubyVersion: 2.5
+  NewCops: "enable"
   Exclude:
     - ".git/**/*"
     - "bin/**/*"
@@ -24,15 +26,15 @@ Metrics/MethodLength:
 Metrics/LineLength:
   Max: 128
 
+Metrics/CyclomaticComplexity:
+  Max: 10
+
 Naming/FileName:
   Exclude:
     - "config/initializers/**/*"
 
 Style/AccessModifierDeclarations:
   EnforcedStyle: "inline"
-
-Style/BracesAroundHashParameters:
-  Enabled: false
 
 Style/Documentation:
   Enabled: false

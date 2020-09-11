@@ -45,7 +45,7 @@ end
 
 ## Quick Start
 ### Requirements
-- Ruby 2.4 or higher
+- Ruby 2.5 or higher
 - Grape 1.0.0 or higher
 
 ### Installation
@@ -136,6 +136,14 @@ params do
 end
 ```
 
+You can pass a Proc object and request parameters are given as the first argument.
+
+```rb
+params do
+  requires :level, type: Integer, maximum_value: ->(params) { params[:foo] + 1 }
+end
+```
+
 #### Minimum Value
 The minimum value validator checks whether the parameter is equal to or above a specified value. You can specify a Numeric
 object to this.
@@ -143,6 +151,14 @@ object to this.
 ```rb
 params do
   requires :age, type: Integer, minimum_value: 0
+end
+```
+
+You can pass a Proc object and request parameters are given as the first argument.
+
+```rb
+params do
+  requires :level, type: Integer, minimum_value: ->(params) { params[:bar] - 1 }
 end
 ```
 
@@ -159,4 +175,4 @@ Please read [Contributing Guidelines](./.github/CONTRIBUTING.md) before developm
 ## License
 The library is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
 
-Copyright 2020 Jaga Apple. All rights reserve
+Copyright 2020 Jaga Apple. All rights reserved.

@@ -45,7 +45,7 @@ end
 
 ## Quick Start
 ### Requirements
-- Ruby 2.4 or higher
+- Ruby 2.5 or higher
 - Grape 1.0.0 or higher
 
 ### Installation

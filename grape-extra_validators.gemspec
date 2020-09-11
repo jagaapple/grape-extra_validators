@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
   spec.license               = "MIT"
 
   spec.platform              = Gem::Platform::RUBY
-  spec.required_ruby_version = ">= 2.4.0"
+  spec.required_ruby_version = ">= 2.5.0"
   spec.files                 = Dir["**/*"].keep_if { |file| File.file?(file) }
   spec.test_files            = Dir["spec/**/*"]
   spec.require_paths         = ["lib"]

@@ -1,6 +1,6 @@
 # Refer: https://github.com/rubocop-hq/rubocop/blob/master/config/default.yml
 AllCops:
-  TargetRubyVersion: 2.4
+  TargetRubyVersion: 2.5
   NewCops: "enable"
   Exclude:
     - ".git/**/*"

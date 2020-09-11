@@ -1,0 +1,65 @@
+name: "Build and test"
+on:
+  push:
+    branches: ["master"]
+  pull_request: {}
+env:
+  BUNDLE_JOBS: 4
+  BUNDLE_RETRY: 3
+  BUNDLE_PATH: "vendor/bundle"
+jobs:
+
+  parameters:
+    name: "Set parameters"
+    runs-on: "ubuntu-latest"
+    outputs:
+      GITHUB_SHA: "${{ steps.GITHUB_SHA.outputs.GITHUB_SHA }}"
+    steps:
+      - id: "GITHUB_SHA"
+        run: "echo \"::set-output name=GITHUB_SHA::$GITHUB_SHA\""
+
+  test:
+    name: "Test"
+    needs: "parameters"
+    runs-on: "ubuntu-latest"
+    strategy:
+      matrix:
+        ruby: ["2.5", "2.6", "2.7"]
+    steps:
+      - uses: "actions/checkout@v2"
+      - name: "Use Ruby"
+        uses: "actions/setup-ruby@v1"
+        with:
+          ruby-version: "${{ matrix.ruby }}"
+      - name: "Install dependencies"
+        run: |
+          gem install bundler:1.17.2
+          bundle install
+      - name: "Execute tests without coverage rate"
+        if: "matrix.ruby != '2.7'"
+        run: "bundle exec rspec"
+      - name: "Execute tests with coverage rate"
+        if: "matrix.ruby == '2.7'"
+        env:
+          CODECOV_TOKEN: "${{ secrets.CODECOV_TOKEN }}"
+        run: "bundle exec rspec"
+
+  lint:
+    name: "Lint"
+    needs: "parameters"
+    runs-on: "ubuntu-latest"
+    strategy:
+      matrix:
+        ruby: ["2.5", "2.6", "2.7"]
+    steps:
+      - uses: "actions/checkout@v2"
+      - name: "Use Ruby"
+        uses: "actions/setup-ruby@v1"
+        with:
+          ruby-version: "${{ matrix.ruby }}"
+      - name: "Install dependencies"
+        run: |
+          gem install bundler:1.17.2
+          bundle install
+      - name: "Execute linters"
+        run: "bundle exec rubocop -P"

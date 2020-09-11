@@ -45,7 +45,7 @@ end
 
 ## Quick Start
 ### Requirements
-- Ruby 2.4 or higher
+- Ruby 2.5 or higher
 - Grape 1.0.0 or higher
 
 ### Installation
@@ -159,4 +159,4 @@ Please read [Contributing Guidelines](./.github/CONTRIBUTING.md) before developm
 ## License
 The library is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
 
-Copyright 2020 Jaga Apple. All rights reserve
+Copyright 2020 Jaga Apple. All rights reserved.

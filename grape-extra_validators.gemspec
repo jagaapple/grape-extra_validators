@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
   spec.license               = "MIT"
 
   spec.platform              = Gem::Platform::RUBY
-  spec.required_ruby_version = ">= 2.4.0"
+  spec.required_ruby_version = ">= 2.5.0"
   spec.files                 = Dir["**/*"].keep_if { |file| File.file?(file) }
   spec.test_files            = Dir["spec/**/*"]
   spec.require_paths         = ["lib"]
@@ -24,12 +24,12 @@ Gem::Specification.new do |spec|
   spec.add_dependency "activesupport"
   spec.add_dependency "grape", ">= 1.0.0"
 
-  spec.add_development_dependency "bundler", "~> 1.17.3"
-  spec.add_development_dependency "codecov", "~> 0.1.16"
+  spec.add_development_dependency "bundler", "~> 1.17.2"
+  spec.add_development_dependency "codecov", "~> 0.2.11"
   spec.add_development_dependency "rack-test", "~> 1.1.0"
   spec.add_development_dependency "rake", "~> 13.0.1"
   spec.add_development_dependency "rspec", "~> 3.9.0"
-  spec.add_development_dependency "rubocop", "~> 0.79.0"
-  spec.add_development_dependency "simplecov", "~> 0.17.1"
-  spec.add_development_dependency "simplecov-console", "~> 0.6.0"
+  spec.add_development_dependency "rubocop", "~> 0.90.0"
+  spec.add_development_dependency "simplecov", "~> 0.19.0"
+  spec.add_development_dependency "simplecov-console", "~> 0.7.2"
 end

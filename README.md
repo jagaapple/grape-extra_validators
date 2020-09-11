@@ -136,6 +136,14 @@ params do
 end
 ```
 
+You can pass a Proc object and request parameters are given as the first argument.
+
+```rb
+params do
+  requires :level, type: Integer, maximum_value: ->(params) { params[:foo] + 1 }
+end
+```
+
 #### Minimum Value
 The minimum value validator checks whether the parameter is equal to or above a specified value. You can specify a Numeric
 object to this.
@@ -143,6 +151,14 @@ object to this.
 ```rb
 params do
   requires :age, type: Integer, minimum_value: 0
+end
+```
+
+You can pass a Proc object and request parameters are given as the first argument.
+
+```rb
+params do
+  requires :level, type: Integer, minimum_value: ->(params) { params[:bar] - 1 }
 end
 ```
 

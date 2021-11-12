@@ -33,6 +33,10 @@ end
     - [Minimum Length](#minimum-length)
     - [Start With](#start-with)
     - [End With](#end-with)
+  - [For Array](#for-array)
+    - [Length](#length-1)
+    - [Maximum Length](#maximum-length-1)
+    - [Minimum Length](#minimum-length-1)
   - [For Numeric](#for-numeric)
     - [Value](#value)
     - [Maximum Value](#maximum-value)
@@ -112,6 +116,38 @@ or Array which has strings object to this.
 params do
   requires :price, type: String, end_with: "JPY"
   requires :price, type: String, end_with: %w(JPY USD)
+end
+```
+
+### For Array
+#### Length
+The length validator checks whether the parameter contains a specified number of items or number of items is within a specified
+range. You can specify an Integer or Range object to this.
+
+```rb
+params do
+  requires :values, type: Array, length: 4
+  requires :other_values, type: Array, length: 4..10
+end
+```
+
+#### Maximum Length
+The maximum length validator checks whether the parameter contains up to a specified number of items. You can specify an Integer
+object to this.
+
+```rb
+params do
+  requires :values, type: Array, maximum_length: 5
+end
+```
+
+#### Minimum Length
+The minimum length validator checks whether the parameter contains at least a specified number of items. You can specify an Integer
+object to this.
+
+```rb
+params do
+  requires :values, type: Array, minimum_length: 3
 end
 ```
 

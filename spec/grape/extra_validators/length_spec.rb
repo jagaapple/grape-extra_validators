@@ -126,9 +126,10 @@ describe Grape::ExtraValidators::Length do
 
       context "when the length is less than the configured length" do
         let(:values) { [1, 2] }
-        it 'fails with corresponding message' do
+        it "fails with corresponding message" do
           is_expected.to eq(400)
-          expect(JSON.parse(last_response.body)["error"]).to eq("values must have exactly 3 items")
+          error = JSON.parse(last_response.body)["error"]
+          expect(error).to eq("values must have exactly 3 items")
         end
       end
 
@@ -139,9 +140,10 @@ describe Grape::ExtraValidators::Length do
 
       context "when the length is more than the configured length" do
         let(:values) { [1, 2, 3, 4] }
-        it 'fails with corresponding message' do
+        it "fails with corresponding message" do
           is_expected.to eq(400)
-          expect(JSON.parse(last_response.body)["error"]).to eq("values must have exactly 3 items")
+          error = JSON.parse(last_response.body)["error"]
+          expect(error).to eq("values must have exactly 3 items")
         end
       end
 
@@ -155,9 +157,10 @@ describe Grape::ExtraValidators::Length do
 
       context "when the length is less than the configured minimum length" do
         let(:values) { [1] }
-        it 'fails with corresponding message' do
+        it "fails with corresponding message" do
           is_expected.to eq(400)
-          expect(JSON.parse(last_response.body)["error"]).to eq("values must have 2 to 4 items")
+          error = JSON.parse(last_response.body)["error"]
+          expect(error).to eq("values must have 2 to 4 items")
         end
       end
 
@@ -176,9 +179,10 @@ describe Grape::ExtraValidators::Length do
 
       context "when the length is more than the configured maximum length" do
         let(:values) { [1, 2, 3, 4, 5] }
-        it 'fails with corresponding message' do
+        it "fails with corresponding message" do
           is_expected.to eq(400)
-          expect(JSON.parse(last_response.body)["error"]).to eq("values must have 2 to 4 items")
+          error = JSON.parse(last_response.body)["error"]
+          expect(error).to eq("values must have 2 to 4 items")
         end
       end
 

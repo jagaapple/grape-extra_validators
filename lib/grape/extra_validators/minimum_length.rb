@@ -16,7 +16,8 @@ module Grape
         return if !@required && value.blank?
 
         unless [String, Array].include? value.class
-          fail Grape::Exceptions::Validation.new(params: [@scope.full_name(attr_name)], message: "minimum length cannot be validated (wrong parameter type: #{value.class})")
+          message = "minimum length cannot be validated (wrong parameter type: #{value.class})"
+          fail Grape::Exceptions::Validation.new(params: [@scope.full_name(attr_name)], message: message)
         end
 
         return if value.length >= @option

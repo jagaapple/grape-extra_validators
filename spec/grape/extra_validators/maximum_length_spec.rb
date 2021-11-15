@@ -61,9 +61,10 @@ describe Grape::ExtraValidators::MaximumLength do
     context "when the length is more than the configured maximum length" do
       let(:text) { "123456789" }
 
-      it 'fails with corresponding message' do
+      it "fails with corresponding message" do
         is_expected.to eq(400)
-        expect(JSON.parse(last_response.body)["error"]).to eq("text must be up to 8 characters long")
+        error = JSON.parse(last_response.body)["error"]
+        expect(error).to eq("text must be up to 8 characters long")
       end
     end
 
@@ -93,9 +94,10 @@ describe Grape::ExtraValidators::MaximumLength do
     context "when the length is more than the configured maximum length" do
       let(:values) { [1, 2, 3, 4] }
 
-      it 'fails with corresponding message' do
+      it "fails with corresponding message" do
         is_expected.to eq(400)
-        expect(JSON.parse(last_response.body)["error"]).to eq("values must have up to 3 items")
+        error = JSON.parse(last_response.body)["error"]
+        expect(error).to eq("values must have up to 3 items")
       end
     end
 
@@ -110,7 +112,8 @@ describe Grape::ExtraValidators::MaximumLength do
     subject { last_response.status }
     it "fails with corresponding message" do
       is_expected.to eq(400)
-      expect(JSON.parse(last_response.body)["error"]).to eq("value maximum length cannot be validated (wrong parameter type: Integer)")
+      error = JSON.parse(last_response.body)["error"]
+      expect(error).to eq("value maximum length cannot be validated (wrong parameter type: Integer)")
     end
   end
 end

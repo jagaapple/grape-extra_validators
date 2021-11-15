@@ -16,30 +16,41 @@ module Grape
         return if !@required && value.blank?
 
         unless [String, Array].include? value.class
-          fail Grape::Exceptions::Validation.new(params: [@scope.full_name(attr_name)], message: "length cannot be validated (wrong parameter type: #{value.class})")
+          message = "length cannot be validated (wrong parameter type: #{value.class})"
+          fail Grape::Exceptions::Validation.new(params: [@scope.full_name(attr_name)], message: message)
         end
 
         # If option is a range we check if value length included in the range
-        if @option.instance_of?(Range)
-          return if @option.include?(value.length)
+        message = if @option.instance_of?(Range)
+                    validate_with_range(value)
+                  else
+                    validate_with_number(value)
+                  end
+        fail Grape::Exceptions::Validation.new(params: [@scope.full_name(attr_name)], message: message) unless message.blank?
+      end
 
-          if value.is_a? String
-            message = "must be #{@option.first} to #{@option.last} characters long"
-          else # Array
-            message = "must have #{@option.first} to #{@option.last} items"
-          end
-          fail Grape::Exceptions::Validation.new(params: [@scope.full_name(attr_name)], message: message)
+      private def validate_with_range(value)
+        # if option is a range, we check if value is included in range
+        return nil if @option.include?(value.length)
+
+        if value.is_a? String
+          "must be #{@option.first} to #{@option.last} characters long"
         else
-          # If option is a single value we check if length matches it
-          return if value.length == @option
-          if value.is_a? String
-            unit = "character".pluralize(@option)
-            message = "must be #{@option} #{unit} long"
-          else # Array
-            unit = "item".pluralize(@option)
-            message = "must have exactly #{@option} #{unit}"
-          end
-          fail Grape::Exceptions::Validation.new(params: [@scope.full_name(attr_name)], message: message)
+          "must have #{@option.first} to #{@option.last} items"
+        end
+      end
+
+      private def validate_with_number(value)
+        # If option is a single value we check if length matches it
+        return nil if value.length == @option
+
+        if value.is_a? String
+          unit = "character".pluralize(@option)
+          "must be #{@option} #{unit} long"
+        else
+          # Array
+          unit = "item".pluralize(@option)
+          "must have exactly #{@option} #{unit}"
         end
       end
     end

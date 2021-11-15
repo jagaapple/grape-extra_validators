@@ -49,9 +49,10 @@ describe Grape::ExtraValidators::MinimumLength do
     context "when the length is less than the configured minimum length" do
       let(:text) { "123" }
 
-      it 'fails with corresponding message' do
+      it "fails with corresponding message" do
         is_expected.to eq(400)
-        expect(JSON.parse(last_response.body)["error"]).to eq("text must be at least 4 characters long")
+        error = JSON.parse(last_response.body)["error"]
+        expect(error).to eq("text must be at least 4 characters long")
       end
     end
 
@@ -81,9 +82,10 @@ describe Grape::ExtraValidators::MinimumLength do
     context "when the length is less than the configured minimum length" do
       let(:values) { [1, 2] }
 
-      it 'fails with corresponding message' do
+      it "fails with corresponding message" do
         is_expected.to eq(400)
-        expect(JSON.parse(last_response.body)["error"]).to eq("values must have at least 3 items")
+        error = JSON.parse(last_response.body)["error"]
+        expect(error).to eq("values must have at least 3 items")
       end
     end
 
@@ -110,7 +112,8 @@ describe Grape::ExtraValidators::MinimumLength do
     subject { last_response.status }
     it "fails with corresponding message" do
       is_expected.to eq(400)
-      expect(JSON.parse(last_response.body)["error"]).to eq("value minimum length cannot be validated (wrong parameter type: Integer)")
+      error = JSON.parse(last_response.body)["error"]
+      expect(error).to eq("value minimum length cannot be validated (wrong parameter type: Integer)")
     end
   end
 

@@ -12,7 +12,7 @@ end
 
 <div align="center">
 <a href="https://rubygems.org/gems/grape-extra_validators"><img src="https://img.shields.io/gem/v/grape-extra_validators" alt="gem"></a>
-<a href="https://circleci.com/gh/jagaapple/grape-extra_validators"><img src="https://img.shields.io/circleci/project/github/jagaapple/grape-extra_validators/master.svg" alt="CircleCI"></a>
+<a href="https://github.com/jagaapple/grape-extra_validators/actions?query=workflow%3A%22Build+and+test%22"><img src="https://img.shields.io/circleci/project/github/jagaapple/grape-extra_validators/master.svg" alt="CircleCI"></a>
 <a href="https://codecov.io/gh/jagaapple/grape-extra_validators"><img src="https://img.shields.io/codecov/c/github/jagaapple/grape-extra_validators.svg"></a>
 <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/github/license/jagaapple/grape-extra_validators.svg" alt="license"></a>
 <a href="https://twitter.com/jagaapple_tech"><img src="https://img.shields.io/badge/contact-%40jagaapple_tech-blue.svg" alt="@jagaapple_tech"></a>

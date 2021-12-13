@@ -6,11 +6,6 @@ require "grape"
 module Grape
   module ExtraValidators
     class MinimumLength < Grape::Validations::Base
-      # ------------------------------------------------------------------------------------------------------------------------
-      # Methods
-      # ------------------------------------------------------------------------------------------------------------------------
-      # Public Methods
-      # ------------------------------------------------------------------------------------------------------------------------
       def validate_param!(attr_name, params)
         return if !@required && params[attr_name].blank?
         return if params[attr_name].length >= @option

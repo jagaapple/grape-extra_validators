@@ -12,11 +12,23 @@ module Grape
       # Public Methods
       # ------------------------------------------------------------------------------------------------------------------------
       def validate_param!(attr_name, params)
-        return if !@required && params[attr_name].blank?
-        return if params[attr_name].length >= @option
+        value = params[attr_name]
+        return if !@required && value.blank?
 
-        unit = "character".pluralize(@option)
-        message = "must be at least #{@option} #{unit} long"
+        unless [String, Array].include? value.class
+          message = "minimum length cannot be validated (wrong parameter type: #{value.class})"
+          fail Grape::Exceptions::Validation.new(params: [@scope.full_name(attr_name)], message: message)
+        end
+
+        return if value.length >= @option
+
+        if value.is_a? String
+          unit = "character".pluralize(@option)
+          message = "must be at least #{@option} #{unit} long"
+        else # Array
+          unit = "item".pluralize(@option)
+          message = "must have at least #{@option} #{unit}"
+        end
 
         fail Grape::Exceptions::Validation.new(params: [@scope.full_name(attr_name)], message: message)
       end
